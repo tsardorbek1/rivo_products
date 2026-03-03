@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RIVO Atelier</title>
+    <meta
+      name="description"
+      content="RIVO Atelier is a minimalist luxury storefront for original and authorized fashion collections."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand-lockup" href="#top" aria-label="RIVO Atelier home">
+          <span class="brand-mark">RA</span>
+          <span class="brand-copy">
+            <strong>RIVO Atelier</strong>
+            <small>Original and authorized collections</small>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#collection">Collection</a>
+          <a href="#brands">Brands</a>
+          <a href="#experience">Experience</a>
+        </nav>
+
+        <button class="cart-button" id="cartToggle" type="button" aria-expanded="false">
+          Cart
+          <span id="cartCount">0</span>
+        </button>
+      </header>
+
+      <main id="top">
+        <section class="hero-section">
+          <div class="hero-copy">
+            <p class="eyebrow">Luxury wardrobe systems</p>
+            <h1>Minimal form. Precise tailoring. Storefront built for modern fashion retail.</h1>
+            <p class="hero-text">
+              A premium online store concept for curated clothing lines, with a restrained visual system,
+              elevated product presentation, and a seamless cart-to-checkout flow.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-button" href="#collection">Shop the edit</a>
+              <a class="ghost-button" href="#brands">View brand houses</a>
+            </div>
+          </div>
+
+          <div class="hero-panel">
+            <div class="hero-card">
+              <span>Drop 03</span>
+              <strong>Architected layering</strong>
+              <p>Outerwear, knit structures, and premium basics designed for year-round rotation.</p>
+            </div>
+            <div class="hero-metrics" aria-label="Store highlights">
+              <article>
+                <strong>24h</strong>
+                <span>dispatch target</span>
+              </article>
+              <article>
+                <strong>12</strong>
+                <span>signature pieces</span>
+              </article>
+              <article>
+                <strong>04</strong>
+                <span>authorized labels</span>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="ticker-section" aria-label="Brand highlight">
+          <div class="ticker-track">
+            <span>RIVO Atelier</span>
+            <span>Monarch Division</span>
+            <span>Northline Studio</span>
+            <span>Aether Form</span>
+            <span>RIVO Atelier</span>
+            <span>Monarch Division</span>
+            <span>Northline Studio</span>
+            <span>Aether Form</span>
+          </div>
+        </section>
+
+        <section class="collection-section" id="collection">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Collection</p>
+              <h2>Store-ready product grid</h2>
+            </div>
+            <p>
+              This demo catalog is set up for original or licensed products only. Filters, cart state, and
+              checkout are fully interactive in the browser.
+            </p>
+          </div>
+
+          <div class="catalog-toolbar">
+            <div class="filter-group" id="filterGroup" role="tablist" aria-label="Product filters"></div>
+            <label class="search-field">
+              <span>Search</span>
+              <input id="searchInput" type="search" placeholder="Tailored wool, technical shirt..." />
+            </label>
+          </div>
+
+          <div class="product-grid" id="productGrid"></div>
+        </section>
+
+        <section class="brands-section" id="brands">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Brand names</p>
+              <h2>Authorized label architecture</h2>
+            </div>
+            <p>
+              Reserved slots for in-house labels or licensed partner brands. The layout is ready for real
+              inventory and brand storytelling.
+            </p>
+          </div>
+
+          <div class="brand-grid" id="brandGrid"></div>
+        </section>
+
+        <section class="experience-section" id="experience">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Experience</p>
+              <h2>Minimalist surface, commerce underneath</h2>
+            </div>
+            <p>
+              Designed to feel editorial at first glance while still operating like an online store with
+              merchandising, basket management, and conversion-focused checkout.
+            </p>
+          </div>
+
+          <div class="experience-grid">
+            <article>
+              <strong>Editorial layout</strong>
+              <p>Large typography, disciplined spacing, and a premium material palette replace generic storefront patterns.</p>
+            </article>
+            <article>
+              <strong>Smart merchandising</strong>
+              <p>Products can be segmented by category, styled by label, and promoted through feature drops or capsule edits.</p>
+            </article>
+            <article>
+              <strong>Checkout path</strong>
+              <p>Persistent cart storage and structured checkout fields simulate a production storefront flow.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <p>RIVO Atelier storefront concept for original or authorized fashion goods.</p>
+      </footer>
+    </div>
+
+    <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Shopping cart">
+      <div class="cart-header">
+        <div>
+          <p class="eyebrow">Basket</p>
+          <h2>Your selection</h2>
+        </div>
+        <button class="icon-button" id="cartClose" type="button" aria-label="Close cart">×</button>
+      </div>
+
+      <div class="cart-items" id="cartItems"></div>
+
+      <div class="cart-footer">
+        <div class="summary-line">
+          <span>Subtotal</span>
+          <strong id="cartSubtotal">$0</strong>
+        </div>
+        <button class="primary-button wide" id="checkoutButton" type="button">Proceed to checkout</button>
+      </div>
+    </aside>
+
+    <div class="overlay" id="overlay" hidden></div>
+
+    <dialog class="checkout-modal" id="checkoutModal">
+      <form class="checkout-form" id="checkoutForm" method="dialog">
+        <div class="checkout-header">
+          <div>
+            <p class="eyebrow">Checkout</p>
+            <h2>Complete order</h2>
+          </div>
+          <button class="icon-button" id="checkoutClose" type="button" aria-label="Close checkout">×</button>
+        </div>
+
+        <div class="checkout-layout">
+          <div class="checkout-fields">
+            <label>
+              <span>Full name</span>
+              <input name="name" type="text" placeholder="Client name" required />
+            </label>
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" placeholder="client@example.com" required />
+            </label>
+            <label>
+              <span>Address</span>
+              <input name="address" type="text" placeholder="Shipping address" required />
+            </label>
+            <label>
+              <span>Card number</span>
+              <input name="card" type="text" inputmode="numeric" placeholder="4242 4242 4242 4242" required />
+            </label>
+          </div>
+
+          <div class="checkout-summary">
+            <p class="eyebrow">Order summary</p>
+            <div id="checkoutItems"></div>
+            <div class="summary-line">
+              <span>Total</span>
+              <strong id="checkoutTotal">$0</strong>
+            </div>
+          </div>
+        </div>
+
+        <button class="primary-button wide" type="submit">Place order</button>
+      </form>
+    </dialog>
+
+    <template id="productCardTemplate">
+      <article class="product-card">
+        <div class="product-visual">
+          <span class="product-badge"></span>
+        </div>
+        <div class="product-meta">
+          <div class="product-copy">
+            <p class="product-label"></p>
+            <h3></h3>
+            <p class="product-description"></p>
+          </div>
+          <div class="product-footer">
+            <strong class="product-price"></strong>
+            <button class="ghost-button add-to-cart" type="button">Add to cart</button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <template id="brandCardTemplate">
+      <article class="brand-card">
+        <div>
+          <p class="brand-type"></p>
+          <h3 class="brand-name"></h3>
+        </div>
+        <p class="brand-text"></p>
+      </article>
+    </template>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
